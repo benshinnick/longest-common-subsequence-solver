@@ -17,16 +17,17 @@ The second part will not make any attempt to recount the actual subsequence. It 
  
 It will produce as output, a table that will look like this:
 
-```
-   01 02 03 04 05 06 07
-01  -  H  M  D  M  L  D
-02  -  -  H  H  D  D  H
-03  -  -  -  L  M  D  M
-04  -  -  -  -  M  L  M
-05  -  -  -  -  -  M  L
-06  -  -  -  -  -  -  M
-07  -  -  -  -  -  -  -
-```
+
+|   | 01 | 02 | 03 | 04 | 05 | 06 | 07 |
+|:--:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 01 | - | H | M | D | M | L | D |
+| 02 | - | - | H | H | D | D | H |
+| 03 | - | - | - | L | M | D | M |
+| 04 | - | - | - | - | M | L | M |
+| 05 | - | - | - | - | - | M | L |
+| 06 | - | - | - | - | - | - | M |
+| 07 | - | - | - | - | - | - | - |
+
  
 Obviously, the `01`, `02`, `03`, ... are labels for the strings, and the upper triangle holds a measure of similarity between pairs of strings `{01,02}`, `{01,03}`, `{01,04}` ...
  
