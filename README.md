@@ -8,6 +8,29 @@ As discussed in class, the longest common subsequence (LCS) problem is a common 
  
 ## Program Descriptions
 Assume that we are implementing a program to help us study similarity among organisms based upon comparison of gene sequences. In order to do this, we will implement the dynamic programming version of the LCS algorithm in two different ways in one program.
+
+## Standard LCS Algorithm
+```
+LCS-Length(X,Y)
+  m = length(X)
+  n = length(Y)
+  for i = 1 to m do
+    c[i,0] = 0
+  for j = 0 to n do
+    c[0,j] = 0
+  for i = 1 to m do
+    for j = 1 to n do
+      if X[i] == Y[j] then
+        c[i,j] = c[i-1,j-1] + 1
+        b[i,j] = "diagonal"
+      else 
+        if c[i-1,j] >= c[i,j-1] then
+          c[i,j] = c[i-1,j]
+          b[i,j] = "up" 
+        else 
+          c[i,j] = c[i,j-1]
+          b[i,j] = "left" 
+```
  
 ## Part 1:
 The first part will read a file containing a pair of character strings corresponding to the gene sequences, compute the LCS and display the original strings and the longest subsequence of characters. This version of the problem will utilize the entire "c" array, but NO "b" array. You must reconstruct the sequence itself from the "c" array for full credit. Strings could be up to 1000 characters in length.The file name you should use is twoStrings.txt. Obviously, you will not be able to hand-check for LCS in strings of such length, so you should run tests with shorter strings to confirm correctness of your program.
@@ -44,6 +67,77 @@ Obviously, the `01`, `02`, `03`, ... are labels for the strings, and the upper t
 - Dissimilar strings are any that meet none of the above criteria.
 
 The file of strings will first contain an integer that indicates how many strings are in the file, followed by that number of character strings. Strings will be terminated in the file by newlines. Recognize that you can end up with memory problems in a real-world version of this problem and you should not try to read all the strings into RAM at once. This is an obvious place to use a direct access file. We are already economizing on the amount of ram by not using the O(2*m*n) space. The reason for this is that these will be long strings and in a real-world solution, there might be a lot of them. For our purposes, you can assume there will be 20 strings or fewer. The file name you should use is multiStrings.txt
+
+## Direct Access File Example
+```
+#include <iostream>
+#include <fstream>
+#include<string>
+#include<string.h>
+
+const int POSLEN = 20;
+const int LINELEN = 120;
+
+int positions[POSLEN];
+
+int totStrings = 0;
+
+void computeLengths()
+{
+  std::ifstream in;
+  char line[LINELEN];
+  in.open("t.txt");
+     positions[0] = 0; 
+  while(in.getline(line, LINELEN))
+  {
+    positions[totStrings] = strlen(line)+1;
+    std::cout << "number of chars = " << positions[totStrings++] << std::endl;
+    line[strlen(line)] = '\0';
+    std::cout << "string = [" << line << "]" << std::endl;
+  }
+  in.close();
+}
+
+void directAccess()
+{
+   int i, j, currentPos = positions[0];
+   char line[LINELEN];
+   std::ifstream in;
+   in.open("t.txt");
+   in.seekg(currentPos);
+   for(i = 1; i < totStrings-1; i++)
+   {
+     in.getline(line, LINELEN);
+     line[strlen(line)] = '\0'; 
+     std::cout << "this string [" << line << "]" << std::endl;
+     for(j = i+1; j < totStrings; j++)  
+     {	
+       in.getline(line, LINELEN);
+       line[strlen(line)] = '\0';
+       std::cout << "  compared with [" << line << "]" << std::endl;
+     }
+     currentPos += positions[i];
+     in.seekg(currentPos);
+   }
+}
+
+void showPositionsArray()
+{
+  int i;
+  for(i = 0; i < totStrings; i++)
+  {
+    std::cout << " line " << i << " position " << positions[i] << std::endl;
+  }
+}
+  
+int main()
+{	
+  computeLengths();
+  showPositionsArray();
+  directAccess();
+  return 0;
+}
+```
  
 ## Deliverables
 You will submit the following for this project: 
