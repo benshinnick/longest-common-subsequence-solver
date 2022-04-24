@@ -16,7 +16,7 @@ class LcsSolver {
 
         std::string getRightShiftedSequence(std::string sequence);
         std::string getLeftShiftedSequence(std::string sequence);
-        std::string recoverLongestCommonSubsequence();
+        std::string recoverLongestCommonSubsequence(int r, int c);
 
     public:
         LcsSolver(std::string firstSequence, std::string secondSequence);

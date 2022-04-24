@@ -8,8 +8,14 @@ std::string LcsSolver::getLeftShiftedSequence(std::string sequence) {
     return sequence.substr(1);
 }
 
-std::string LcsSolver::recoverLongestCommonSubsequence() {
-
+std::string LcsSolver::recoverLongestCommonSubsequence(int r, int c) {
+    if(r == 0 || c == 0)
+        return;
+    if(firstSequence[r] == secondSequence[c]) 
+        return recoverLongestCommonSubsequence(r--, c--) + firstSequence[r];
+    if(costs[r-1][c] >= costs[r][c-1])
+        return recoverLongestCommonSubsequence(r--, c);
+    return recoverLongestCommonSubsequence(r, c--);
 }
 
 LcsSolver::LcsSolver(std::string firstSequence, std::string secondSequence) {
@@ -43,11 +49,11 @@ void LcsSolver::runAlgorithm() {
 }
 
 std::string LcsSolver::getLongestCommonSubsequence() {
-
+    return recoverLongestCommonSubsequence(firstSequence.size(), secondSequence.size());
 }
 
 int LcsSolver::getLongestCommonSubsequenceLength() {
-
+    return getLongestCommonSubsequence().size();
 }
 
 void LcsSolver::setFirstSequence(std::string firstSequence) {
