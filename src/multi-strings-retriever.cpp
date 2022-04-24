@@ -1,0 +1,1 @@
+#include "multi-strings-retriever.hpp"
