@@ -8,19 +8,25 @@
 class LcsSolver {
 
     static const int MAX_SEQUENCE_LENGTH = 1000;
-    const std::string TWO_STRINGS_INPUT_FILE_NAME = "testTwoStrings.txt";
 
     private:
         std::string firstSequence;
         std::string secondSequence;
-        int costs[MAX_SEQUENCE_LENGTH + 1][MAX_SEQUENCE_LENGTH + 1];
+        int costs[MAX_SEQUENCE_LENGTH+1][MAX_SEQUENCE_LENGTH+1];
 
-        std::string findLongestCommonSubsequence();
+        void getRightShiftedSequence(std::string sequence);
+        std::string recoverLongestCommonSubsequence();
 
     public:
-        LcsSolver();
+        LcsSolver(std::string firstSequence, std::string secondSequence);
+        void runAlgorithm();
         std::string getLongestCommonSubsequence();
-
+        int getLongestCommonSubsequenceLength();
+        
+        void setFirstSequence(std::string firstSequence);
+        std::string getFirstSequence();
+        void setSecondSequence(std::string firstSequence);
+        std::string getSecondSequence();
 };
 
 #endif
