@@ -1,10 +1,10 @@
 #include "lcs-solver.hpp"
 
-void LcsSolver::getRightShiftedSequence(std::string sequence) {
+std::string LcsSolver::getRightShiftedSequence(std::string sequence) {
     return ' ' + sequence;
 }
 
-void LcsSolver::getLeftShiftedSequence(std::string sequence) {
+std::string LcsSolver::getLeftShiftedSequence(std::string sequence) {
     return sequence.substr(1);
 }
 
