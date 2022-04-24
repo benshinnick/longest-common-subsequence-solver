@@ -15,6 +15,7 @@ class LcsSolver {
         int costs[MAX_SEQUENCE_LENGTH+1][MAX_SEQUENCE_LENGTH+1];
 
         void getRightShiftedSequence(std::string sequence);
+        void getLeftShiftedSequence(std::string sequence);
         std::string recoverLongestCommonSubsequence();
 
     public:
@@ -22,7 +23,7 @@ class LcsSolver {
         void runAlgorithm();
         std::string getLongestCommonSubsequence();
         int getLongestCommonSubsequenceLength();
-        
+
         void setFirstSequence(std::string firstSequence);
         std::string getFirstSequence();
         void setSecondSequence(std::string firstSequence);
