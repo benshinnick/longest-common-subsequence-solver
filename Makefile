@@ -21,6 +21,7 @@ test-all: $(TESTS)
 test-catch: test/test-catch.cpp
 test-two-strings-retriever: test/test-two-strings-retriever.cpp src/two-strings-retriever.o
 test-lcs-solver: test/test-lcs-solver.cpp src/two-strings-retriever.o src/lcs-solver.o
+test-multi-strings-retriever: test/test-multi-strings-retriever.cpp src/multi-strings-retriever.o
 
 clean:
 	rm -rf *.dSYM

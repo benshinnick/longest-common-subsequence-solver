@@ -14,7 +14,7 @@ class MultiStringsRetriever {
         std::ifstream multiStringsInput;
 
         bool openMultiStringsInputFile(std::string fileName);
-        void computeLengths();
+        void computeStartingPositions();
 
     public:
         MultiStringsRetriever(std::string multiStringsInputFileName);

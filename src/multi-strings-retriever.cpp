@@ -9,20 +9,23 @@ bool MultiStringsRetriever::openMultiStringsInputFile(std::string fileName) {
     return false;
 }
 
-void MultiStringsRetriever::computeLengths() {
-    multiStringsInput >> numStrings;
+void MultiStringsRetriever::computeStartingPositions() {
+    std::string numStringsStr;
+    std::getline(multiStringsInput, numStringsStr);
+
+    numStrings = std::stoi(numStringsStr);
     positions = new int [numStrings];
-    positions[0] = 0;
+    positions[0] = numStringsStr.length()+1;
     
     std::string line;
-    int currString = 0;
+    int currStrIdx = 0;
     while(std::getline(multiStringsInput, line)) {
-        positions[currString++] = line.length()+1;
+        positions[++currStrIdx] = positions[currStrIdx] + line.length()+1;
     }
 }
 
 MultiStringsRetriever::MultiStringsRetriever(std::string multiStringsInputFileName) {
-    if(openMultiStringsInputFile(multiStringsInputFileName)) computeLengths();
+    if(openMultiStringsInputFile(multiStringsInputFileName)) computeStartingPositions();
 }
 
 MultiStringsRetriever::~MultiStringsRetriever() {
@@ -35,8 +38,12 @@ int MultiStringsRetriever::getNumStrings() {
 }
 
 std::string MultiStringsRetriever::getString(int stringNum) {
-    multiStringsInput.seekg(positions[stringNum]);
-    std::string string;
-    std::getline(multiStringsInput, string);
-    return string;
+    std::string retrievedString;
+    int stringStartPos = positions[stringNum];
+
+    multiStringsInput.clear();
+    multiStringsInput.seekg(stringStartPos);
+
+    std::getline(multiStringsInput, retrievedString);
+    return retrievedString;
 }
