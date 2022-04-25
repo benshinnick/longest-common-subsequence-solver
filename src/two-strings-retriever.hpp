@@ -13,7 +13,7 @@ class TwoStringsRetriever {
         std::string secondString;
         std::ifstream twoStringsInput;
 
-        bool openTwoStringsInputFile(std::string twoStringsInputFileName);
+        bool openTwoStringsInputFile(std::string fileName);
         void readTwoStringsInputFile();
 
     public:

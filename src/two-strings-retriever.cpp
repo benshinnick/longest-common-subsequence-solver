@@ -1,8 +1,8 @@
 #include "two-strings-retriever.hpp"
 
-bool TwoStringsRetriever::openTwoStringsInputFile(std::string twoStringsInputFileName) {
+bool TwoStringsRetriever::openTwoStringsInputFile(std::string fileName) {
     std::string twoStringsFileInputPath = TWO_STRINGS_FILE_INPUT_DIRECTORY;
-    twoStringsFileInputPath += twoStringsInputFileName;
+    twoStringsFileInputPath += fileName;
     twoStringsInput.open(twoStringsFileInputPath);
 
     if(twoStringsInput.is_open()) return true;
@@ -15,7 +15,10 @@ void TwoStringsRetriever::readTwoStringsInputFile() {
 }
 
 TwoStringsRetriever::TwoStringsRetriever(std::string twoStringsInputFileName) {
-    if(openTwoStringsInputFile(twoStringsInputFileName)) readTwoStringsInputFile();
+    if(openTwoStringsInputFile(twoStringsInputFileName)) {
+        readTwoStringsInputFile();
+        twoStringsInput.close();
+    }
 }
 
 std::string TwoStringsRetriever::getFirstString() {
