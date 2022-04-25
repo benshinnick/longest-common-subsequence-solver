@@ -3,7 +3,7 @@
 #include "../src/lcs-solver.hpp"
 
 TEST_CASE("Testing LCS Solver On Simple In Class Example") {
-    TwoStringsRetriever twoStrings = TwoStringsRetriever("testTwoStringsInClass.txt");
+    TwoStringsRetriever twoStrings = TwoStringsRetriever("simpleTwoStrings.txt");
     std::string firstSequence = twoStrings.getFirstString();
     std::string secondSequence = twoStrings.getSecondString();
 
@@ -23,7 +23,7 @@ TEST_CASE("Testing LCS Solver") {
 
     LcsSolver lcsSolver = LcsSolver(firstSequence, secondSequence);
     REQUIRE(lcsSolver.getFirstSequence() == "fdsasdfxsdss");
-    REQUIRE(lcsSolver.getSecondSequence() == "adfdsasdfsdssasadsfsfsds");
+    REQUIRE(lcsSolver.getSecondSequence() == "adfdsxasdfsdssrasadswfsfsdsx");
 
     lcsSolver.runAlgorithm();
     CHECK(lcsSolver.getLongestCommonSubsequence() == "fdsasdfsdss");

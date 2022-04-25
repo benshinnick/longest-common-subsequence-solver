@@ -48,7 +48,7 @@ void LcsSolver::runAlgorithm() {
 }
 
 std::string LcsSolver::getLongestCommonSubsequence() {
-    return recoverLongestCommonSubsequence(firstSequence.size(), secondSequence.size());
+    return recoverLongestCommonSubsequence(firstSequence.size()-1, secondSequence.size()-1);
 }
 
 int LcsSolver::getLongestCommonSubsequenceLength() {
