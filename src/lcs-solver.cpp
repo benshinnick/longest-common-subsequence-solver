@@ -10,7 +10,7 @@ std::string LcsSolver::getLeftShiftedSequence(std::string sequence) {
 
 std::string LcsSolver::recoverLongestCommonSubsequence(int r, int c) {
     if(r == 0 || c == 0)
-        return "";
+        return std::string();
     if(firstSequence[r] == secondSequence[c]) 
         return recoverLongestCommonSubsequence(r-1, c-1) + firstSequence[r];
     if(costs[r-1][c] >= costs[r][c-1])
@@ -27,19 +27,19 @@ void LcsSolver::runAlgorithm() {
     int firstSequenceLength = firstSequence.size();
     int secondSequenceLength = secondSequence.size();
 
-    for(int r = 0; r <= firstSequenceLength; ++r)
+    for(int r = 0; r < firstSequenceLength; ++r)
         costs[r][0] = 0;
-    for(int c = 1; c <= secondSequenceLength; ++c)
+    for(int c = 1; c < secondSequenceLength; ++c)
         costs[0][c] = 0;
 
-    for(int r = 1; r <= firstSequenceLength; ++r) {
-        for(int c = 1; c <= secondSequenceLength; ++c) {
+    for(int r = 1; r < firstSequenceLength; ++r) {
+        for(int c = 1; c < secondSequenceLength; ++c) {
             if(firstSequence[r] == secondSequence[c]) {
-                costs[r][c] = costs[r-1][c-1];
+                costs[r][c] = costs[r-1][c-1] + 1;
                 continue;
             }
             if(costs[r-1][c] >= costs[r][c-1]) {
-                costs[r][c] = costs[r-1][c-1] + 1;
+                costs[r][c] = costs[r-1][c];
                 continue;
             }
             costs[r][c] = costs[r][c-1];
@@ -52,7 +52,7 @@ std::string LcsSolver::getLongestCommonSubsequence() {
 }
 
 int LcsSolver::getLongestCommonSubsequenceLength() {
-    return getLongestCommonSubsequence().size();
+    return costs[firstSequence.size()-1][secondSequence.size()-1];
 }
 
 void LcsSolver::setFirstSequence(std::string firstSequence) {
@@ -70,15 +70,3 @@ void LcsSolver::setSecondSequence(std::string secondSequence) {
 std::string LcsSolver::getSecondSequence() {
     return getLeftShiftedSequence(secondSequence);
 }
-
-//TESTING
-#include <iostream>
-void LcsSolver::printCostArray() {
-    for(int r = 0; r < firstSequence.size(); ++r) {
-        for(int c = 0; c < secondSequence.size(); ++c) {
-            std::cout << costs[c][r] << " ";
-        }
-        std::cout << std::endl;
-    }
-}
-//TESTING

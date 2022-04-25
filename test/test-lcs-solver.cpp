@@ -12,8 +12,7 @@ TEST_CASE("Testing LCS Solver On Simple In Class Example") {
     REQUIRE(lcsSolver.getSecondSequence() == "baca");
 
     lcsSolver.runAlgorithm();
-    lcsSolver.printCostArray();
-    REQUIRE(lcsSolver.getLongestCommonSubsequence() == "bac");
+    CHECK(lcsSolver.getLongestCommonSubsequence() == "bac");
     REQUIRE(lcsSolver.getLongestCommonSubsequenceLength() == 3);
 }
 
@@ -27,6 +26,6 @@ TEST_CASE("Testing LCS Solver") {
     REQUIRE(lcsSolver.getSecondSequence() == "adfdsasdfsdssasadsfsfsds");
 
     lcsSolver.runAlgorithm();
-    REQUIRE(lcsSolver.getLongestCommonSubsequence() == "fdsasdfsdss");
+    CHECK(lcsSolver.getLongestCommonSubsequence() == "fdsasdfsdss");
     REQUIRE(lcsSolver.getLongestCommonSubsequenceLength() == 11);
 }
