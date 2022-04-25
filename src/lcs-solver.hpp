@@ -28,6 +28,10 @@ class LcsSolver {
         std::string getFirstSequence();
         void setSecondSequence(std::string firstSequence);
         std::string getSecondSequence();
+
+        //TESTING
+        void printCostArray();
+        //TESTING
 };
 
 #endif

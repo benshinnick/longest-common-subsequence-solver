@@ -10,12 +10,12 @@ std::string LcsSolver::getLeftShiftedSequence(std::string sequence) {
 
 std::string LcsSolver::recoverLongestCommonSubsequence(int r, int c) {
     if(r == 0 || c == 0)
-        return;
+        return "";
     if(firstSequence[r] == secondSequence[c]) 
-        return recoverLongestCommonSubsequence(r--, c--) + firstSequence[r];
+        return recoverLongestCommonSubsequence(r-1, c-1) + firstSequence[r];
     if(costs[r-1][c] >= costs[r][c-1])
-        return recoverLongestCommonSubsequence(r--, c);
-    return recoverLongestCommonSubsequence(r, c--);
+        return recoverLongestCommonSubsequence(r-1, c);
+    return recoverLongestCommonSubsequence(r, c-1);
 }
 
 LcsSolver::LcsSolver(std::string firstSequence, std::string secondSequence) {
@@ -45,7 +45,6 @@ void LcsSolver::runAlgorithm() {
             costs[r][c] = costs[r][c-1];
         }
     }
-
 }
 
 std::string LcsSolver::getLongestCommonSubsequence() {
@@ -71,3 +70,15 @@ void LcsSolver::setSecondSequence(std::string secondSequence) {
 std::string LcsSolver::getSecondSequence() {
     return getLeftShiftedSequence(secondSequence);
 }
+
+//TESTING
+#include <iostream>
+void LcsSolver::printCostArray() {
+    for(int r = 0; r < firstSequence.size(); ++r) {
+        for(int c = 0; c < secondSequence.size(); ++c) {
+            std::cout << costs[c][r] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+//TESTING
