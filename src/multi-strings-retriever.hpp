@@ -24,6 +24,7 @@ class MultiStringsRetriever {
         int getNumStrings();
         std::string getString(int stringNum);
         void setNewInputFile(std::string multiStringsInputFileName);
+        MultiStringsRetriever& operator=(const MultiStringsRetriever& rhs);
     
 };
 

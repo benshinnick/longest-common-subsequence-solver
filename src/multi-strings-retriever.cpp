@@ -64,3 +64,12 @@ void MultiStringsRetriever::setNewInputFile(std::string multiStringsInputFileNam
     this->multiStringsInputFileName = multiStringsInputFileName;
     computeStartingPositions();
 }
+
+MultiStringsRetriever& MultiStringsRetriever::operator=(const MultiStringsRetriever& rhs) {
+    if(this != &rhs) {
+        this->numStrings = rhs.numStrings;
+        this->positions = rhs.positions;
+        this->multiStringsInputFileName = rhs.multiStringsInputFileName;
+    }
+    return *this;
+}
