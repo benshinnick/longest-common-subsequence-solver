@@ -7,6 +7,7 @@
 class MultiStringsRetriever {
 
     const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+    const std::string DEFAULT_MULTI_STRINGS_FILE_NAME = "multiStrings.txt";
 
     private:
         int numStrings;
@@ -17,6 +18,7 @@ class MultiStringsRetriever {
         void computeStartingPositions();
 
     public:
+        MultiStringsRetriever();
         MultiStringsRetriever(std::string multiStringsInputFileName);
         ~MultiStringsRetriever();
         int getNumStrings();

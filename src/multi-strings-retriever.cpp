@@ -24,8 +24,14 @@ void MultiStringsRetriever::computeStartingPositions() {
     }
 }
 
+MultiStringsRetriever::MultiStringsRetriever() {
+    if(openMultiStringsInputFile(DEFAULT_MULTI_STRINGS_FILE_NAME))
+        computeStartingPositions();
+}
+
 MultiStringsRetriever::MultiStringsRetriever(std::string multiStringsInputFileName) {
-    if(openMultiStringsInputFile(multiStringsInputFileName)) computeStartingPositions();
+    if(openMultiStringsInputFile(multiStringsInputFileName))
+        computeStartingPositions();
 }
 
 MultiStringsRetriever::~MultiStringsRetriever() {
