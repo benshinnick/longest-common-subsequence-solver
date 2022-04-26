@@ -9,8 +9,7 @@ class SimilaritySolver {
 
     private:
         int numSequences;
-        MultiStringsRetriever multiStringsRetriever
-            = MultiStringsRetriever();
+        MultiStringsRetriever multiStringsRetriever = MultiStringsRetriever();
 
         int calculateLcsLength(
             const std::string& firstSequence,
