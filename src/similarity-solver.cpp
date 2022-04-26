@@ -12,12 +12,12 @@ char SimilaritySolver::calucateSimularityMeasure() {
 
 SimilaritySolver::SimilaritySolver() {
     multiStringsRetriever = MultiStringsRetriever();
-    // numSequences = multiStringsRetriever.getNumStrings();
+    numSequences = multiStringsRetriever.getNumStrings();
 }
 
 SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
     multiStringsRetriever = MultiStringsRetriever(multiStringsInputFileName);
-    // numSequences = multiStringsRetriever.getNumStrings();
+    numSequences = multiStringsRetriever.getNumStrings();
 }
 
 char SimilaritySolver::getSimularityMeasure(
