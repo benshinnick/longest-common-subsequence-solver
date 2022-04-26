@@ -11,15 +11,16 @@ class TwoStringsRetriever {
     private:
         std::string firstString;
         std::string secondString;
-        std::ifstream twoStringsInput;
+        std::string twoStringsInputFileName;
 
-        bool openTwoStringsInputFile(std::string fileName);
+        std::string getTwoStringsInputFilePath();
         void readTwoStringsInputFile();
 
     public:
         TwoStringsRetriever(std::string twoStringsInputFileName);
         std::string getFirstString();
         std::string getSecondString();
+        void setNewInputFile(std::string twoStringsInputFileName);
 
 };
 
