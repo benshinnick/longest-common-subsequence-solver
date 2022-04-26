@@ -12,9 +12,9 @@ class MultiStringsRetriever {
     private:
         int numStrings;
         int* positions;
-        std::ifstream multiStringsInput;
+        std::string multiStringsInputFileName;
 
-        bool openMultiStringsInputFile(std::string fileName);
+        std::string getMultiStringsInputFilePath();
         void computeStartingPositions();
 
     public:
@@ -23,6 +23,7 @@ class MultiStringsRetriever {
         ~MultiStringsRetriever();
         int getNumStrings();
         std::string getString(int stringNum);
+        void setNewInputFile(std::string multiStringsInputFileName);
     
 };
 
