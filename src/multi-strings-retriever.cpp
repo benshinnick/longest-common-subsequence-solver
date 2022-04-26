@@ -14,7 +14,7 @@ void MultiStringsRetriever::computeStartingPositions() {
         std::getline(multiStringsInput, numStringsStr);
 
         numStrings = std::stoi(numStringsStr);
-        positions = new int [numStrings];
+        positions.resize(numStrings);
         positions[0] = numStringsStr.length()+1;
         
         std::string line;
@@ -34,10 +34,6 @@ MultiStringsRetriever::MultiStringsRetriever() {
 MultiStringsRetriever::MultiStringsRetriever(std::string multiStringsInputFileName) {
     this->multiStringsInputFileName = multiStringsInputFileName;
     computeStartingPositions();
-}
-
-MultiStringsRetriever::~MultiStringsRetriever() {
-    delete positions;
 }
 
 int MultiStringsRetriever::getNumStrings() {
@@ -63,13 +59,4 @@ std::string MultiStringsRetriever::getString(int stringNum) {
 void MultiStringsRetriever::setNewInputFile(std::string multiStringsInputFileName) {
     this->multiStringsInputFileName = multiStringsInputFileName;
     computeStartingPositions();
-}
-
-MultiStringsRetriever& MultiStringsRetriever::operator=(const MultiStringsRetriever& rhs) {
-    if(this != &rhs) {
-        this->numStrings = rhs.numStrings;
-        this->positions = rhs.positions;
-        this->multiStringsInputFileName = rhs.multiStringsInputFileName;
-    }
-    return *this;
 }

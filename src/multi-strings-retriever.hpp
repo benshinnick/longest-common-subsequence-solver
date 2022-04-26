@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <vector>
 
 class MultiStringsRetriever {
 
@@ -11,7 +12,7 @@ class MultiStringsRetriever {
 
     private:
         int numStrings;
-        int* positions;
+        std::vector<int> positions;
         std::string multiStringsInputFileName;
 
         std::string getMultiStringsInputFilePath();
@@ -20,12 +21,9 @@ class MultiStringsRetriever {
     public:
         MultiStringsRetriever();
         MultiStringsRetriever(std::string multiStringsInputFileName);
-        ~MultiStringsRetriever();
         int getNumStrings();
         std::string getString(int stringNum);
         void setNewInputFile(std::string multiStringsInputFileName);
-        MultiStringsRetriever& operator=(const MultiStringsRetriever& rhs);
-    
 };
 
 #endif

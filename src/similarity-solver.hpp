@@ -17,7 +17,6 @@ class SimilaritySolver {
         );
         char calucateSimularityMeasure();
 
-
     public:
         SimilaritySolver();
         SimilaritySolver(std::string multiStringsInputFileName);
@@ -28,6 +27,7 @@ class SimilaritySolver {
         );
         std::string getSimilarityTable();
         void setSequenceRetriever(std::string multiStringsInputFileName);
+        int getNumStrings();
 };
 
 #endif
