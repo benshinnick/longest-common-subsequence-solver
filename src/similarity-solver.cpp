@@ -3,11 +3,11 @@
 int SimilaritySolver::calculateLcsLength(
     const std::string& firstSequence, const std::string& secondSequence
 ) {
-
+    return -1;
 }
 
 char SimilaritySolver::calucateSimularityMeasure() {
-
+    return 'D';
 }
 
 SimilaritySolver::SimilaritySolver() {
@@ -22,11 +22,11 @@ SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
 char SimilaritySolver::getSimularityMeasure(
     const std::string& firstSequence, const std::string& secondSequence
 ) {
-
+    return 'D';
 }
 
 std::string SimilaritySolver::getSimilarityTable() {
-
+    return "";
 }
 
 void SimilaritySolver::setSequenceRetriever(std::string multiStringsInputFileName) {
@@ -35,5 +35,5 @@ void SimilaritySolver::setSequenceRetriever(std::string multiStringsInputFileNam
 }
 
 int SimilaritySolver::getNumStrings() {
-
+    return numStrings;
 }

@@ -1,5 +1,5 @@
 #ifndef SIMILARITY_SOLVER_HPP
-#define SIMULARITY_SOLVER_HPP
+#define SIMILARITY_SOLVER_HPP
 
 #include <sstream>
 
