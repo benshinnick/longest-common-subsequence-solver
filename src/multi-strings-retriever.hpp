@@ -5,10 +5,10 @@
 #include <string>
 #include <vector>
 
-class MultiStringsRetriever {
+const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+const std::string DEFAULT_MULTI_STRINGS_FILE_NAME = "multiStrings.txt";
 
-    const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
-    const std::string DEFAULT_MULTI_STRINGS_FILE_NAME = "multiStrings.txt";
+class MultiStringsRetriever {
 
     private:
         int numStrings;
@@ -24,6 +24,7 @@ class MultiStringsRetriever {
         int getNumStrings();
         std::string getString(int stringNum);
         void setNewInputFile(std::string multiStringsInputFileName);
+        
 };
 
 #endif
