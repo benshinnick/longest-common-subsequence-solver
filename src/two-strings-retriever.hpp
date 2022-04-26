@@ -7,6 +7,7 @@
 class TwoStringsRetriever {
 
     const std::string TWO_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+    const std::string DEFAULT_TWO_STRINGS_FILE_NAME = "twoStrings.txt";
 
     private:
         std::string firstString;
@@ -17,6 +18,7 @@ class TwoStringsRetriever {
         void readTwoStringsInputFile();
 
     public:
+        TwoStringsRetriever();
         TwoStringsRetriever(std::string twoStringsInputFileName);
         std::string getFirstString();
         std::string getSecondString();

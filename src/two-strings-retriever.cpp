@@ -16,6 +16,11 @@ void TwoStringsRetriever::readTwoStringsInputFile() {
     }
 }
 
+TwoStringsRetriever::TwoStringsRetriever() {
+    this->twoStringsInputFileName = DEFAULT_TWO_STRINGS_FILE_NAME;
+    readTwoStringsInputFile();
+}
+
 TwoStringsRetriever::TwoStringsRetriever(std::string twoStringsInputFileName) {
     this->twoStringsInputFileName = twoStringsInputFileName;
     readTwoStringsInputFile();
