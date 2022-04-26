@@ -4,7 +4,7 @@
 #include <iostream>
 
 TEST_CASE("Testing Retrieving Multiple Strings From File") {
-    MultiStringsRetriever eightStrings = MultiStringsRetriever("multiStrings.txt");
+    MultiStringsRetriever eightStrings = MultiStringsRetriever();
     REQUIRE(eightStrings.getNumStrings() == 8);
     REQUIRE(eightStrings.getString(0) == "asdfdsasdfdsadfdsasdf");
     REQUIRE(eightStrings.getString(1) == "asdfdsasd");
@@ -17,11 +17,11 @@ TEST_CASE("Testing Retrieving Multiple Strings From File") {
 }
 
 TEST_CASE("Test Simple Ascending Alphapet Strings") {
-    MultiStringsRetriever eightStrings = MultiStringsRetriever("simpleMultiStrings.txt");
-    REQUIRE(eightStrings.getNumStrings() == 26);
-    REQUIRE(eightStrings.getString(0) == "a");
-    for(int i = 0; i < eightStrings.getNumStrings(); ++i) {
-        REQUIRE(eightStrings.getString(i).length() == i+1);
+    MultiStringsRetriever alphabetStrings = MultiStringsRetriever("simpleMultiStrings.txt");
+    REQUIRE(alphabetStrings.getNumStrings() == 26);
+    REQUIRE(alphabetStrings.getString(0) == "a");
+    for(int i = 0; i < 26; ++i) {
+        REQUIRE(alphabetStrings.getString(i).length() == (i+1));
     }
-    REQUIRE(eightStrings.getString(25) == "abcdefghijklmnopqrstuvwxyz");
+    REQUIRE(alphabetStrings.getString(25) == "abcdefghijklmnopqrstuvwxyz");
 }

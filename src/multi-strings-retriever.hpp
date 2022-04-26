@@ -3,25 +3,28 @@
 
 #include <fstream>
 #include <string>
+#include <vector>
+
+const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+const std::string DEFAULT_MULTI_STRINGS_FILE_NAME = "multiStrings.txt";
 
 class MultiStringsRetriever {
 
-    const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
-
     private:
         int numStrings;
-        int* positions;
-        std::ifstream multiStringsInput;
+        std::vector<int> positions;
+        std::string multiStringsInputFileName;
 
-        bool openMultiStringsInputFile(std::string fileName);
+        std::string getMultiStringsInputFilePath();
         void computeStartingPositions();
 
     public:
+        MultiStringsRetriever();
         MultiStringsRetriever(std::string multiStringsInputFileName);
-        ~MultiStringsRetriever();
         int getNumStrings();
         std::string getString(int stringNum);
-    
+        void setNewInputFile(std::string multiStringsInputFileName);
+        
 };
 
 #endif

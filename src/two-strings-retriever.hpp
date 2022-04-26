@@ -4,22 +4,25 @@
 #include <fstream>
 #include <string>
 
-class TwoStringsRetriever {
+const std::string TWO_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+const std::string DEFAULT_TWO_STRINGS_FILE_NAME = "twoStrings.txt";
 
-    const std::string TWO_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+class TwoStringsRetriever {
 
     private:
         std::string firstString;
         std::string secondString;
-        std::ifstream twoStringsInput;
+        std::string twoStringsInputFileName;
 
-        bool openTwoStringsInputFile(std::string fileName);
+        std::string getTwoStringsInputFilePath();
         void readTwoStringsInputFile();
 
     public:
+        TwoStringsRetriever();
         TwoStringsRetriever(std::string twoStringsInputFileName);
         std::string getFirstString();
         std::string getSecondString();
+        void setNewInputFile(std::string twoStringsInputFileName);
 
 };
 
