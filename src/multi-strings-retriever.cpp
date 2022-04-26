@@ -1,9 +1,5 @@
 #include "multi-strings-retriever.hpp"
 
-//TESTING
-#include <iostream>
-//TESTING
-
 std::string MultiStringsRetriever::getMultiStringsInputFilePath() {
     std::string multiStringsFileInputPath = MULTI_STRINGS_FILE_INPUT_DIRECTORY;
     multiStringsFileInputPath += multiStringsInputFileName;
@@ -11,8 +7,7 @@ std::string MultiStringsRetriever::getMultiStringsInputFilePath() {
 }
 
 void MultiStringsRetriever::computeStartingPositions() {
-    std::ifstream multiStringsInput;
-    multiStringsInput.open(getMultiStringsInputFilePath());
+    std::ifstream multiStringsInput(getMultiStringsInputFilePath());
     if(multiStringsInput.is_open()) {
         std::string numStringsStr;
         std::getline(multiStringsInput, numStringsStr);
@@ -20,18 +15,15 @@ void MultiStringsRetriever::computeStartingPositions() {
         numStrings = std::stoi(numStringsStr);
         positions.resize(numStrings);
         positions[0] = numStringsStr.length()+1;
-        std::cout << numStrings << std::endl;
         
         std::string line;
         int currStrIdx = 0;
         while(std::getline(multiStringsInput, line)) {
-            std::cout << "[" << line << "]" << std::endl;
             currStrIdx++;
             positions[currStrIdx] = positions[currStrIdx-1] + line.length()+1;
         }
         multiStringsInput.close();
     }
-    std::cout << "Got Here" << std::endl;
 }
 
 MultiStringsRetriever::MultiStringsRetriever() {
@@ -50,16 +42,13 @@ int MultiStringsRetriever::getNumStrings() {
 
 std::string MultiStringsRetriever::getString(int stringNum) {
     std::string retrievedString;
-    std::ifstream multiStringsInput;
-    multiStringsInput.open(getMultiStringsInputFilePath());
+    std::ifstream multiStringsInput(getMultiStringsInputFilePath());
     if(multiStringsInput.is_open()) {
         int stringStartPos = positions[stringNum];
 
         multiStringsInput.clear();
         multiStringsInput.seekg(stringStartPos);
         std::getline(multiStringsInput, retrievedString);
-
-        std::cout << "[" << retrievedString << "]" << std::endl;
 
         multiStringsInput.close();
     }

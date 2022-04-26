@@ -7,8 +7,7 @@ std::string TwoStringsRetriever::getTwoStringsInputFilePath() {
 }
 
 void TwoStringsRetriever::readTwoStringsInputFile() {
-    std::ifstream twoStringsInput;
-    twoStringsInput.open(getTwoStringsInputFilePath());
+    std::ifstream twoStringsInput(getTwoStringsInputFilePath());
     if(twoStringsInput.is_open()) {
         twoStringsInput >> firstString;
         twoStringsInput >> secondString;
