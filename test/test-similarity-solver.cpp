@@ -4,10 +4,10 @@
 
 TEST_CASE("Testing Similarity Solver Constructors") {
     SimilaritySolver similaritySolver1 = SimilaritySolver();
-    REQUIRE(similaritySolver1.getNumStrings() == 8);
+    REQUIRE(similaritySolver1.getNumSequences() == 8);
     SimilaritySolver similaritySolver2 = SimilaritySolver("simpleMultiStrings.txt");
-    REQUIRE(similaritySolver2.getNumStrings() == 26);
+    REQUIRE(similaritySolver2.getNumSequences() == 26);
 
     similaritySolver1.setSequenceRetriever("simpleMultiStrings.txt");
-    REQUIRE(similaritySolver1.getNumStrings() == 26);
+    REQUIRE(similaritySolver1.getNumSequences() == 26);
 }

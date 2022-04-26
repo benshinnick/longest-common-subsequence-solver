@@ -8,8 +8,8 @@
 class SimilaritySolver {
 
     private:
-        int numStrings;
-        MultiStringsRetriever sequenceRetriever;
+        int numSequences;
+        MultiStringsRetriever multiStringsRetriever;
 
         int calculateLcsLength(
             const std::string& firstSequence,
@@ -27,7 +27,7 @@ class SimilaritySolver {
         );
         std::string getSimilarityTable();
         void setSequenceRetriever(std::string multiStringsInputFileName);
-        int getNumStrings();
+        int getNumSequences();
 };
 
 #endif
