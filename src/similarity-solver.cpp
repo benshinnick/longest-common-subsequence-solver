@@ -3,26 +3,6 @@
 int SimilaritySolver::calculateLcsLength(
     const std::string& firstSequence, const std::string& secondSequence
 ) {
-    // int firstSequenceLength = firstSequence.size();
-    // int secondSequenceLength = secondSequence.size();
-
-    // int twoRowCosts[2][firstSequenceLength+1];
-    // int currWorkingRow = 1;
-
-    // for(int i = 1; i < firstSequenceLength; ++i) {
-    //     for(int j = 1; j < secondSequenceLength; ++j) {
-    //         if(firstSequence[i] == secondSequence[j]) {
-    //             costs[r][c] = costs[r-1][c-1] + 1;
-    //             continue;
-    //         }
-    //         if(costs[r-1][c] >= costs[r][c-1]) {
-    //             costs[r][c] = costs[r-1][c];
-    //             continue;
-    //         }
-    //         costs[r][c] = costs[r][c-1];
-    //     }
-    // }
-
     return -1;
 }
 
@@ -31,12 +11,13 @@ char SimilaritySolver::calucateSimularityMeasure() {
 }
 
 SimilaritySolver::SimilaritySolver() {
-    numSequences = multiStringsRetriever.getNumStrings();
+    multiStringsRetriever = MultiStringsRetriever();
+    // numSequences = multiStringsRetriever.getNumStrings();
 }
 
 SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
-    multiStringsRetriever.setNewInputFile(multiStringsInputFileName);
-    numSequences = multiStringsRetriever.getNumStrings();
+    multiStringsRetriever = MultiStringsRetriever(multiStringsInputFileName);
+    // numSequences = multiStringsRetriever.getNumStrings();
 }
 
 char SimilaritySolver::getSimularityMeasure(

@@ -1,5 +1,9 @@
 #include "multi-strings-retriever.hpp"
 
+//TESTING
+#include <iostream>
+//TESTING
+
 std::string MultiStringsRetriever::getMultiStringsInputFilePath() {
     std::string multiStringsFileInputPath = MULTI_STRINGS_FILE_INPUT_DIRECTORY;
     multiStringsFileInputPath += multiStringsInputFileName;
@@ -20,10 +24,12 @@ void MultiStringsRetriever::computeStartingPositions() {
         std::string line;
         int currStrIdx = 0;
         while(std::getline(multiStringsInput, line)) {
-            positions[++currStrIdx] = positions[currStrIdx] + line.length()+1;
+            currStrIdx++;
+            positions[currStrIdx] = positions[currStrIdx-1] + line.length()+1;
         }
         multiStringsInput.close();
     }
+    std::cout << "Got Here" << std::endl;
 }
 
 MultiStringsRetriever::MultiStringsRetriever() {
