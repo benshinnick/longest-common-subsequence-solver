@@ -20,10 +20,12 @@ void MultiStringsRetriever::computeStartingPositions() {
         numStrings = std::stoi(numStringsStr);
         positions.resize(numStrings);
         positions[0] = numStringsStr.length()+1;
+        std::cout << numStrings << std::endl;
         
         std::string line;
         int currStrIdx = 0;
         while(std::getline(multiStringsInput, line)) {
+            std::cout << "[" << line << "]" << std::endl;
             currStrIdx++;
             positions[currStrIdx] = positions[currStrIdx-1] + line.length()+1;
         }
@@ -56,6 +58,8 @@ std::string MultiStringsRetriever::getString(int stringNum) {
         multiStringsInput.clear();
         multiStringsInput.seekg(stringStartPos);
         std::getline(multiStringsInput, retrievedString);
+
+        std::cout << "[" << retrievedString << "]" << std::endl;
 
         multiStringsInput.close();
     }

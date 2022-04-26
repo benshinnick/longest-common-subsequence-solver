@@ -20,7 +20,7 @@ TEST_CASE("Test Simple Ascending Alphapet Strings") {
     MultiStringsRetriever alphabetStrings = MultiStringsRetriever("simpleMultiStrings.txt");
     REQUIRE(alphabetStrings.getNumStrings() == 26);
     REQUIRE(alphabetStrings.getString(0) == "a");
-    for(int i = 0; i < alphabetStrings.getNumStrings(); ++i) {
+    for(int i = 0; i < 26; ++i) {
         REQUIRE(alphabetStrings.getString(i).length() == (i+1));
     }
     REQUIRE(alphabetStrings.getString(25) == "abcdefghijklmnopqrstuvwxyz");
