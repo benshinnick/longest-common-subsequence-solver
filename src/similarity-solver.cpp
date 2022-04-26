@@ -11,13 +11,17 @@ char SimilaritySolver::calucateSimularityMeasure() {
 }
 
 SimilaritySolver::SimilaritySolver() {
-    sequenceRetriever = MultiStringsRetriever();
-    numStrings = sequenceRetriever.getNumStrings();
+    sequenceRetriever = new MultiStringsRetriever();
+    numStrings = sequenceRetriever->getNumStrings();
 }
 
 SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
-    sequenceRetriever = MultiStringsRetriever(multiStringsInputFileName);
-    numStrings = sequenceRetriever.getNumStrings();
+    sequenceRetriever = new MultiStringsRetriever(multiStringsInputFileName);
+    numStrings = sequenceRetriever->getNumStrings();
+}
+
+SimilaritySolver::~SimilaritySolver() {
+    delete sequenceRetriever;
 }
 
 char SimilaritySolver::getSimularityMeasure(
@@ -31,5 +35,7 @@ std::string SimilaritySolver::getSimilarityTable() {
 }
 
 void SimilaritySolver::setSequenceRetriever(std::string multiStringsInputFileName) {
-
+    delete sequenceRetriever;
+    sequenceRetriever = new MultiStringsRetriever(multiStringsInputFileName);
+    numStrings = sequenceRetriever->getNumStrings();
 }
