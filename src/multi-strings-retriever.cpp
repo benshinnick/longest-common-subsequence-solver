@@ -11,16 +11,14 @@ void MultiStringsRetriever::computeStartingPositions() {
     if(multiStringsInput.is_open()) {
         std::string numStringsStr;
         std::getline(multiStringsInput, numStringsStr);
-
         numStrings = std::stoi(numStringsStr);
         positions.resize(numStrings);
         positions[0] = numStringsStr.length()+1;
         
         std::string line;
-        int currStrIdx = 0;
-        while(std::getline(multiStringsInput, line)) {
-            currStrIdx++;
-            positions[currStrIdx] = positions[currStrIdx-1] + line.length()+1;
+        for(int i = 1; i < numStrings; ++i) {
+            std::getline(multiStringsInput, line);
+            positions[i] = positions[i-1] + line.length()+1;
         }
         multiStringsInput.close();
     }
