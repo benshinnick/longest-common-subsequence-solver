@@ -31,17 +31,13 @@ char SimilaritySolver::calcucateSimularityMeasure(int firstLen, int secondLen, i
     int shorterLen = firstLen < secondLen ? firstLen : secondLen;
     int longerLen = firstLen > secondLen ? firstLen : secondLen;
     
-    float shorterLenPercentOfLonger = (float) shorterLen / longerLen;
-    float lcsLenPercentOfShorter = (float) lcsLen / shorterLen;
+    double shorterLenPercentOfLonger = (double) shorterLen / longerLen;
+    double lcsLenPercentOfShorter = (double) lcsLen / shorterLen;
 
-    if(shorterLenPercentOfLonger >= 0.9 && lcsLenPercentOfShorter >= 0.9)
-        return 'H';
-    else if(shorterLenPercentOfLonger >= 0.8 && lcsLenPercentOfShorter >= 0.8)
-        return 'M';
-    else if(shorterLenPercentOfLonger >= 0.6 && lcsLenPercentOfShorter >= 0.5)
-        return 'L';
-    else
-        return 'D';
+    if(shorterLenPercentOfLonger >= 0.9 && lcsLenPercentOfShorter >= 0.9) return 'H';
+    else if(shorterLenPercentOfLonger >= 0.8 && lcsLenPercentOfShorter >= 0.8) return 'M';
+    else if(shorterLenPercentOfLonger >= 0.6 && lcsLenPercentOfShorter >= 0.5) return 'L';
+    else return 'D';
 }
 
 SimilaritySolver::SimilaritySolver() {
@@ -59,7 +55,7 @@ char SimilaritySolver::getSimularityMeasure(int firstStringNum, int secondString
     std::string secondSequence = multiStringsRetriever.getRightShiftedString(secondStringNum);
     
     int lcsLen = calculateLcsLength(firstSequence, secondSequence);
-    return calcucateSimularityMeasure(firstSequence.size(), secondSequence.size(), lcsLen);
+    return calcucateSimularityMeasure(firstSequence.size()-1, secondSequence.size()-1, lcsLen);
 }
 
 std::string SimilaritySolver::getSimilarityTable() {
@@ -76,7 +72,7 @@ std::string SimilaritySolver::getSimilarityTable() {
         tableStream << std::setfill(' ');
         for(int j = 0; j < numSequences; ++j) {
             if(j <= i) tableStream << std::setw(2) << '-' << ' ';
-            else tableStream << std::setw(2) <<  getSimularityMeasure(i, j) << ' ';
+            else tableStream << std::setw(2) << getSimularityMeasure(i, j) << ' ';
             if(j == numSequences - 1) tableStream << std::endl;
         }
     }

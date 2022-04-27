@@ -11,8 +11,5 @@ TEST_CASE("Testing Similarity Solver Constructors") {
     SimilaritySolver similaritySolver2 = SimilaritySolver("simpleMultiStrings.txt");
     REQUIRE(similaritySolver2.getNumSequences() == 26);
 
-    // similaritySolver1.setMultiStringsRetriever("simpleMultiStrings.txt");
-    // REQUIRE(similaritySolver1.getNumSequences() == 26);
-
     std::cout << similaritySolver1.getSimilarityTable() << std::endl;
 }
