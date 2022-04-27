@@ -15,7 +15,7 @@ class SimilaritySolver {
             const std::string& firstSequence,
             const std::string& secondSequence
         );
-        char calucateSimularityMeasure();
+        char calcucateSimularityMeasure(int firstLen, int secondLen, int lcsLen);
 
     public:
         SimilaritySolver();

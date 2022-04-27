@@ -31,7 +31,8 @@ int SimilaritySolver::calculateLcsLength(
     return twoRowCosts[currRow][secondSequence.size()-1];
 }
 
-char SimilaritySolver::calucateSimularityMeasure() {
+char SimilaritySolver::calcucateSimularityMeasure(int firstLen, int secondLen, int lcsLen) {
+    
     return 'D';
 }
 
@@ -48,14 +49,13 @@ SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
 char SimilaritySolver::getSimularityMeasure(
     const std::string& firstSequence, const std::string& secondSequence
 ) {
-    return 'D';
+    int lcsLen = calculateLcsLength(firstSequence, secondSequence);
+    return calcucateSimularityMeasure(firstSequence.size(), secondSequence.size(), lcsLen);
 }
 
 std::string SimilaritySolver::getSimilarityTable() {
-    std::string string1 = " fdsasdfxsdss";
-    std::string string2 = " adfdsxasdfsdssrasadswfsfsdsx";
-    // std::string string1 = multiStringsRetriever.getRightShiftedString(1);
-    // std::string string2 = multiStringsRetriever.getRightShiftedString(2);
+    std::string string1 = multiStringsRetriever.getRightShiftedString(1);
+    std::string string2 = multiStringsRetriever.getRightShiftedString(2);
     std::cout << "Comparing [" << string1 << "] and [" << string2 << "]" << std::endl;
     std::cout << calculateLcsLength(string1, string2) << std::endl;
     return "";
