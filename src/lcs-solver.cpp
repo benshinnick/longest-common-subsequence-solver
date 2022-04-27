@@ -36,13 +36,11 @@ void LcsSolver::runAlgorithm() {
         for(int c = 1; c < secondSequenceLength; ++c) {
             if(firstSequence[r] == secondSequence[c]) {
                 costs[r][c] = costs[r-1][c-1] + 1;
-                continue;
             }
-            if(costs[r-1][c] >= costs[r][c-1]) {
+            else if(costs[r-1][c] >= costs[r][c-1]) {
                 costs[r][c] = costs[r-1][c];
-                continue;
             }
-            costs[r][c] = costs[r][c-1];
+            else costs[r][c] = costs[r][c-1];
         }
     }
 }
