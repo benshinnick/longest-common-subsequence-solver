@@ -53,6 +53,10 @@ std::string MultiStringsRetriever::getString(int stringNum) {
     return retrievedString;
 }
 
+std::string MultiStringsRetriever::getRightShiftedString(int stringNum) {
+    return ' ' + getString(stringNum);
+}
+
 void MultiStringsRetriever::setNewInputFile(std::string multiStringsInputFileName) {
     this->multiStringsInputFileName = multiStringsInputFileName;
     computeStartingPositions();

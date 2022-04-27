@@ -23,6 +23,7 @@ class MultiStringsRetriever {
         MultiStringsRetriever(std::string multiStringsInputFileName);
         int getNumStrings();
         std::string getString(int stringNum);
+        std::string getRightShiftedString(int stringNum);
         void setNewInputFile(std::string multiStringsInputFileName);
         
 };
