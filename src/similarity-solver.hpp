@@ -21,10 +21,7 @@ class SimilaritySolver {
         SimilaritySolver();
         SimilaritySolver(std::string multiStringsInputFileName);
 
-        char getSimularityMeasure(
-            const std::string& firstSequence,
-            const std::string& secondSequence
-        );
+        char getSimularityMeasure(int firstStringNum, int secondStringNum);
         std::string getSimilarityTable();
         void setMultiStringsRetriever(std::string multiStringsInputFileName);
         int getNumSequences();

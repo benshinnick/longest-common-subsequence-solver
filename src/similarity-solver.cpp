@@ -1,9 +1,5 @@
 #include "similarity-solver.hpp"
 
-//TESTING
-#include <iostream>
-//TESTING
-
 int SimilaritySolver::calculateLcsLength(
     const std::string& firstSequence, const std::string& secondSequence
 ) {
@@ -32,8 +28,20 @@ int SimilaritySolver::calculateLcsLength(
 }
 
 char SimilaritySolver::calcucateSimularityMeasure(int firstLen, int secondLen, int lcsLen) {
+    int shorterLen = firstLen < secondLen ? firstLen : secondLen;
+    int longerLen = firstLen > secondLen ? firstLen : secondLen;
     
-    return 'D';
+    float shorterLenPercentOfLonger = (float) shorterLen / longerLen;
+    float lcsLenPercentOfShorter = (float) lcsLen / shorterLen;
+
+    if(shorterLenPercentOfLonger >= 0.9 && lcsLenPercentOfShorter >= 0.9)
+        return 'H';
+    else if(shorterLenPercentOfLonger >= 0.8 && lcsLenPercentOfShorter >= 0.8)
+        return 'M';
+    else if(shorterLenPercentOfLonger >= 0.6 && lcsLenPercentOfShorter >= 0.5)
+        return 'L';
+    else
+        return 'D';
 }
 
 SimilaritySolver::SimilaritySolver() {
@@ -46,19 +54,34 @@ SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
     numSequences = multiStringsRetriever.getNumStrings();
 }
 
-char SimilaritySolver::getSimularityMeasure(
-    const std::string& firstSequence, const std::string& secondSequence
-) {
+char SimilaritySolver::getSimularityMeasure(int firstStringNum, int secondStringNum) {
+    std::string firstSequence = multiStringsRetriever.getRightShiftedString(firstStringNum);
+    std::string secondSequence = multiStringsRetriever.getRightShiftedString(secondStringNum);
+    
     int lcsLen = calculateLcsLength(firstSequence, secondSequence);
     return calcucateSimularityMeasure(firstSequence.size(), secondSequence.size(), lcsLen);
 }
 
 std::string SimilaritySolver::getSimilarityTable() {
-    std::string string1 = multiStringsRetriever.getRightShiftedString(1);
-    std::string string2 = multiStringsRetriever.getRightShiftedString(2);
-    std::cout << "Comparing [" << string1 << "] and [" << string2 << "]" << std::endl;
-    std::cout << calculateLcsLength(string1, string2) << std::endl;
-    return "";
+    std::stringstream tableStream;
+
+    for(int i = 0; i < numSequences; ++i) {
+        if(i == 0) tableStream << std::setw(3) << ' ';
+        tableStream << std::setw(2) << std::setfill('0') << i+1 << ' ';
+        if(i == numSequences - 1) tableStream << std::endl;
+    }
+
+    for(int i = 0; i < numSequences; ++i) {
+        tableStream << std::setw(2) << std::setfill('0') << i+1 << ' ';
+        tableStream << std::setfill(' ');
+        for(int j = 0; j < numSequences; ++j) {
+            if(j <= i) tableStream << std::setw(2) << '-' << ' ';
+            else tableStream << std::setw(2) <<  getSimularityMeasure(i, j) << ' ';
+            if(j == numSequences - 1) tableStream << std::endl;
+        }
+    }
+
+    return tableStream.str();
 }
 
 void SimilaritySolver::setMultiStringsRetriever(std::string multiStringsInputFileName) {
