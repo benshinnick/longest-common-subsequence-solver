@@ -27,10 +27,10 @@ void LcsSolver::runAlgorithm() {
     int firstSequenceLength = firstSequence.size();
     int secondSequenceLength = secondSequence.size();
 
-    // for(int r = 0; r < firstSequenceLength; ++r)
-    //     costs[r][0] = 0;
-    // for(int c = 1; c < secondSequenceLength; ++c)
-    //     costs[0][c] = 0;
+    for(int r = 0; r < firstSequenceLength; ++r)
+        costs[r][0] = 0;
+    for(int c = 1; c < secondSequenceLength; ++c)
+        costs[0][c] = 0;
 
     for(int r = 1; r < firstSequenceLength; ++r) {
         for(int c = 1; c < secondSequenceLength; ++c) {
