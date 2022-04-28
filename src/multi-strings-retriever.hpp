@@ -22,9 +22,9 @@ class MultiStringsRetriever {
         MultiStringsRetriever();
         MultiStringsRetriever(std::string multiStringsInputFileName);
         int getNumStrings();
-        std::string getString(int stringNum);
-        int getStringLength(int stringNum);
-        std::string getRightShiftedString(int stringNum);
+        std::string getStr(int strNum);
+        int getStrLen(int strNum);
+        std::string getRightShiftedString(int strNum);
         void setNewInputFile(std::string multiStringsInputFileName);
         
 };

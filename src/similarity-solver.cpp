@@ -50,12 +50,17 @@ SimilaritySolver::SimilaritySolver(std::string multiStringsInputFileName) {
     numSequences = multiStringsRetriever.getNumStrings();
 }
 
-char SimilaritySolver::getSimularityMeasure(int firstStringNum, int secondStringNum) {
-    std::string firstSequence = multiStringsRetriever.getRightShiftedString(firstStringNum);
-    std::string secondSequence = multiStringsRetriever.getRightShiftedString(secondStringNum);
-    
-    int lcsLen = calculateLcsLength(firstSequence, secondSequence);
-    return calcucateSimularityMeasure(firstSequence.size()-1, secondSequence.size()-1, lcsLen);
+char SimilaritySolver::getSimularityMeasure(int firstStrNum, int secondStrNum) {
+    int lcsLen = getLcsLength(firstStrNum, secondStrNum);
+    int firstStrLen = multiStringsRetriever.getStrLen(firstStrNum);
+    int secondStrLen = multiStringsRetriever.getStrLen(secondStrNum);
+    return calcucateSimularityMeasure(firstStrLen, secondStrLen, lcsLen);
+}
+
+int SimilaritySolver::getLcsLength(int firstStrNum, int secondStrNum) {
+    std::string firstSequence = multiStringsRetriever.getRightShiftedString(firstStrNum);
+    std::string secondSequence = multiStringsRetriever.getRightShiftedString(secondStrNum);
+    return calculateLcsLength(firstSequence, secondSequence);
 }
 
 std::string SimilaritySolver::getSimilarityTable() {

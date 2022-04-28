@@ -23,7 +23,8 @@ class SimilaritySolver {
         SimilaritySolver();
         SimilaritySolver(std::string multiStringsInputFileName);
 
-        char getSimularityMeasure(int firstStringNum, int secondStringNum);
+        char getSimularityMeasure(int firstStrNum, int secondStrNum);
+        int getLcsLength(int firstStrNum, int secondStrNum);
         std::string getSimilarityTable();
         void setMultiStringsRetriever(std::string multiStringsInputFileName);
         int getNumSequences();
