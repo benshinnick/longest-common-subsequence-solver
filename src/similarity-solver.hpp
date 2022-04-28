@@ -2,6 +2,7 @@
 #define SIMILARITY_SOLVER_HPP
 
 #include <sstream>
+#include <cmath>
 
 #include "multi-strings-retriever.hpp"
 
@@ -15,16 +16,15 @@ class SimilaritySolver {
             const std::string& firstSequence,
             const std::string& secondSequence
         );
-        char calucateSimularityMeasure();
+        char calcucateSimularityMeasure(int firstLen, int secondLen, int lcsLen);
+
 
     public:
         SimilaritySolver();
         SimilaritySolver(std::string multiStringsInputFileName);
 
-        char getSimularityMeasure(
-            const std::string& firstSequence,
-            const std::string& secondSequence
-        );
+        char getSimularityMeasure(int firstStrNum, int secondStrNum);
+        int getLcsLength(int firstStrNum, int secondStrNum);
         std::string getSimilarityTable();
         void setMultiStringsRetriever(std::string multiStringsInputFileName);
         int getNumSequences();

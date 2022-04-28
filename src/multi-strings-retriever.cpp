@@ -38,11 +38,12 @@ int MultiStringsRetriever::getNumStrings() {
     return numStrings;
 }
 
-std::string MultiStringsRetriever::getString(int stringNum) {
+std::string MultiStringsRetriever::getStr(int strNum) {
+    if(strNum >= numStrings) return std::string();
     std::string retrievedString;
     std::ifstream multiStringsInput(getMultiStringsInputFilePath());
     if(multiStringsInput.is_open()) {
-        int stringStartPos = positions[stringNum];
+        int stringStartPos = positions[strNum];
 
         multiStringsInput.clear();
         multiStringsInput.seekg(stringStartPos);
@@ -51,6 +52,17 @@ std::string MultiStringsRetriever::getString(int stringNum) {
         multiStringsInput.close();
     }
     return retrievedString;
+}
+
+int MultiStringsRetriever::getStrLen(int strNum) {
+    if(strNum >= numStrings) return -1;
+    if(strNum < numStrings-1)
+        return positions[strNum+1] - positions[strNum]-1;
+    return getStr(strNum).length();
+}
+
+std::string MultiStringsRetriever::getRightShiftedString(int strNum) {
+    return ' ' + getStr(strNum);
 }
 
 void MultiStringsRetriever::setNewInputFile(std::string multiStringsInputFileName) {
