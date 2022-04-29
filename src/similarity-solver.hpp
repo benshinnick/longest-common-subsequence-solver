@@ -17,14 +17,14 @@ class SimilaritySolver {
             const std::string& firstSequence,
             const std::string& secondSequence
         );
-        char calcucateSimularityMeasure(int firstLen, int secondLen, int lcsLen);
+        char calcucateSimilarityMeasure(int firstLen, int secondLen, int lcsLen);
 
 
     public:
         SimilaritySolver();
         SimilaritySolver(std::string multiStringsInputFileName);
 
-        char getSimularityMeasure(int firstStrNum, int secondStrNum);
+        char getSimilarityMeasure(int firstStrNum, int secondStrNum);
         int getLcsLength(int firstStrNum, int secondStrNum);
         std::string getSimilarityTable();
         void setMultiStringsRetriever(std::string multiStringsInputFileName);
