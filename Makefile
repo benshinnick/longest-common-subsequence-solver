@@ -9,4 +9,4 @@ main: $(OBJECTS) main.cpp
 
 clean:
 	rm -rf *.dSYM
-	$(RM) src/*.o *.gc* *.o *.gc* *.dSYM
+	$(RM) src/*.o *.gc* *.o *.gc* *.dSYM core main
