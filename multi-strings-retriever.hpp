@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+const std::string MULTI_STRINGS_FILE_INPUT_DIRECTORY = "";
 const std::string DEFAULT_MULTI_STRINGS_FILE_NAME = "multiStrings.txt";
 
 class MultiStringsRetriever {

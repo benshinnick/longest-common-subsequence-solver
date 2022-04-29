@@ -10,7 +10,7 @@
 #include <fstream>
 #include <string>
 
-const std::string TWO_STRINGS_FILE_INPUT_DIRECTORY = "input-files/";
+const std::string TWO_STRINGS_FILE_INPUT_DIRECTORY = "";
 const std::string DEFAULT_TWO_STRINGS_FILE_NAME = "twoStrings.txt";
 
 class TwoStringsRetriever {
