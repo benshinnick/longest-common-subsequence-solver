@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: two-strings-retriever.hpp
+    Assignment: COP4534 Project 5
+*/
+
 #ifndef TWO_STRINGS_RETRIEVER_HPP
 #define TWO_STRINGS_RETRIEVER_HPP
 

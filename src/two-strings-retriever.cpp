@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: two-strings-retriever.cpp
+    Assignment: COP4534 Project 5
+*/
+
 #include "two-strings-retriever.hpp"
 
 std::string TwoStringsRetriever::getTwoStringsInputFilePath() {

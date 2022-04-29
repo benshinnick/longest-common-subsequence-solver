@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: multi-strings-retriever.hpp
+    Assignment: COP4534 Project 5
+*/
+
 #ifndef MULTI_STRINGS_RETRIEVER_HPP
 #define MULTI_STRINGS_RETRIEVER_HPP
 

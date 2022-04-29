@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: main.cpp
+    Assignment: COP4534 Project 5
+*/
+
 #include <iostream>
 #include <sstream>
 

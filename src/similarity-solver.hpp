@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: similarity-solver.hpp
+    Assignment: COP4534 Project 5
+*/
+
 #ifndef SIMILARITY_SOLVER_HPP
 #define SIMILARITY_SOLVER_HPP
 

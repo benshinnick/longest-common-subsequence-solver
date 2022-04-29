@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: lcs-solver.hpp
+    Assignment: COP4534 Project 5
+*/
+
 #ifndef LCS_SOLVER_HPP
 #define LCS_SOLVER_HPP
 

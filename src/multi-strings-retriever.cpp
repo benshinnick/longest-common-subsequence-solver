@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: multi-strings-retriever.cpp
+    Assignment: COP4534 Project 5
+*/
+
 #include "multi-strings-retriever.hpp"
 
 std::string MultiStringsRetriever::getMultiStringsInputFilePath() {

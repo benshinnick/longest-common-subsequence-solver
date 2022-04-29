@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: lcs-solver.cpp
+    Assignment: COP4534 Project 5
+*/
+
 #include "lcs-solver.hpp"
 
 std::string LcsSolver::getRightShiftedSequence(std::string sequence) {

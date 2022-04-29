@@ -1,3 +1,9 @@
+/*
+    Student Name: Ben Shinnick
+    File Name: similarity-solver.cpp
+    Assignment: COP4534 Project 5
+*/
+
 #include "similarity-solver.hpp"
 
 int SimilaritySolver::calculateLcsLength(
