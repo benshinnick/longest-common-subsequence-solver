@@ -8,6 +8,7 @@
 #define SIMILARITY_SOLVER_HPP
 
 #include <sstream>
+#include <iomanip>
 #include <cmath>
 
 #include "multi-strings-retriever.hpp"
