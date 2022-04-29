@@ -77,7 +77,7 @@ std::string SimilaritySolver::getSimilarityTable() {
         tableStream << std::setfill(' ');
         for(int j = 0; j < numSequences; ++j) {
             if(j <= i) tableStream << std::setw(2) << '-' << ' ';
-            else tableStream << std::setw(2) << getSimularityMeasure(i, j) << ' ';
+            else tableStream << std::setw(2) << getSimilarityMeasure(i, j) << ' ';
             if(j == numSequences - 1) tableStream << std::endl;
         }
     }
