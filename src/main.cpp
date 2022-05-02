@@ -8,13 +8,23 @@
 const std::string TWO_STRINGS_FILE_NAME = "twoStrings.txt";
 const std::string MULTI_STRINGS_FILE_NAME = "multiStrings.txt";
 
+void printLcsResults();
+
+void printSimilarityResults();
+
+void printDivider();
+
+int main() {
+    printLcsResults();
+    printSimilarityResults();
+}
+
 void printDivider() {
     std::cout << "--------------------------------------------";
     std::cout << "--------------------------------------------";
     std::cout << std::endl;
 }
 
-// Part 1
 void printLcsResults() {
     TwoStringsRetriever twoStrings = TwoStringsRetriever(TWO_STRINGS_FILE_NAME);
     std::string firstSequence = twoStrings.getFirstString();
@@ -31,7 +41,6 @@ void printLcsResults() {
     std::cout << std::endl;
 }
 
-// Part 2
 void printSimilarityResults() {
     SimilaritySolver similaritySolver = SimilaritySolver(MULTI_STRINGS_FILE_NAME);
 
@@ -40,10 +49,5 @@ void printSimilarityResults() {
     std::cout << MULTI_STRINGS_FILE_NAME << ":" << std::endl;
     printDivider();
     std::cout << similaritySolver.getSimilarityTable();
-}
-
-int main() {
-    printLcsResults();
-    printSimilarityResults();
     printDivider();
 }
