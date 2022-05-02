@@ -19,12 +19,6 @@ int main() {
     printSimilarityResults();
 }
 
-void printDivider() {
-    std::cout << "--------------------------------------------";
-    std::cout << "--------------------------------------------";
-    std::cout << std::endl;
-}
-
 void printLcsResults() {
     TwoStringsRetriever twoStrings = TwoStringsRetriever(TWO_STRINGS_FILE_NAME);
     std::string firstSequence = twoStrings.getFirstString();
@@ -50,4 +44,10 @@ void printSimilarityResults() {
     printDivider();
     std::cout << similaritySolver.getSimilarityTable();
     printDivider();
+}
+
+void printDivider() {
+    std::cout << "--------------------------------------------";
+    std::cout << "--------------------------------------------";
+    std::cout << std::endl;
 }
